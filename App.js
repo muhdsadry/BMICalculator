@@ -11,21 +11,19 @@ export default class App extends Component{
     }
   }
 
-  statusBMI = (bmi) =>{
-    if(bmi < 18.5){
-      Alert.alert('You are underweight!');
-    } else if(bmi >= 18.5 && bmi <= 24.9){
-      Alert.alert('You are having a normal weight. Well done!');
-    } else if(bmi >= 25 && bmi <= 29.9){
-      Alert.alert('You are overweight!');
-    } else if(bmi >= 30){
-      Alert.alert('You are obese. Please watch your diet!');
-    }
-  }
-
   calculateBMI = () => {
     let totalBMI = Number((this.state.weight/Math.pow(this.state.height,2)) * 10000).toFixed(1);
-    this.setState({bmi: totalBMI}, this.statusBMI(this.state.bmi));
+    this.setState({bmi: totalBMI}, () => {
+      if(this.state.bmi < 18.5){
+        Alert.alert('You are underweight!');
+      } else if(this.state.bmi >= 18.5 && this.state.bmi <= 24.9){
+        Alert.alert('You are having a normal weight. Well done!');
+      } else if(this.state.bmi >= 25 && this.state.bmi <= 29.9){
+        Alert.alert('You are overweight!');
+      } else if(this.state.bmi >= 30){
+        Alert.alert('You are obese. Please watch your diet!');
+      }
+    });
   }
 
   render() {
