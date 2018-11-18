@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, Button, TextInput, Alert} from 'react-native';
+import {Text, View, Button, TextInput, Alert} from 'react-native';
+import {Styles} from './Styles';
 
 export default class App extends Component{
   constructor(){
@@ -28,41 +29,22 @@ export default class App extends Component{
 
   render() {
     return (
-      <View style={styles.container}>
-        <View style={styles.container}>
-        <Text style={styles.welcome}>BMI Calculator</Text>
+      <View style={Styles.container}>
+        <View style={Styles.container}>
+        <Text style={Styles.welcome}>BMI Calculator</Text>
         </View>
-        <View style={styles.container}>
-        <TextInput onChangeText={(weight) => this.setState({weight})} style={styles.instructions} placeholder='Weight in KG'/>
-        <TextInput onChangeText={(height) => this.setState({height})} style={styles.instructions} placeholder='Height in CM'/>
+        <View style={Styles.container}>
+        <TextInput onChangeText={(weight) => this.setState({weight})} style={Styles.instructions} placeholder='Weight in KG'/>
+        <TextInput onChangeText={(height) => this.setState({height})} style={Styles.instructions} placeholder='Height in CM'/>
         <Text></Text>
         <Text></Text>
         </View>
-        <View style={styles.container}>
+        <View style={Styles.container}>
         <Button color="#841584" onPress={this.calculateBMI} title='Calculate'/>
         <Text></Text>
-        <Text style={styles.instructions}>BMI: {this.state.bmi}</Text>
+        <Text style={Styles.instructions}>BMI: {this.state.bmi}</Text>
         </View>
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
