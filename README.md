@@ -4,4 +4,4 @@ A simple BMI Calculator app for React Native Course.
 2. Styles.js - BMI Styling
 # Instructions
 - npx react-native init BMICalculator
-- Replace App.js and include Styles.js in your project directory
+- Replace App.js and include Styles.js in BMICalculator project directory
